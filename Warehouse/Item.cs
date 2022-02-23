@@ -13,24 +13,22 @@ namespace Warehouse
             CurrentQuantity = currentQuantity;
         }
 
-        public int Sell(int currentQuantity, int deductAmount)
+        public void Sell(int deductAmount)
         {
-            if (currentQuantity <= 0)
+            if (CurrentQuantity <= 0)
             {
                 throw new Exception("Item out of stock");
             }
 
             else
             {
-                return currentQuantity - deductAmount;
+                CurrentQuantity = CurrentQuantity - deductAmount;
             }
         }
 
-        public int BuyStock(int currentQuantity, int purchaseAmount)
+        public void BuyStock(int purchaseAmount)
         {
-            return currentQuantity + purchaseAmount;
+            CurrentQuantity = CurrentQuantity + purchaseAmount;
         }
-
-
     }
 }
